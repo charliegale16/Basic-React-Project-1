@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
+import { exerciseOptions, fetchData } from '../utils/fetchData.js';
+let mykey = process.env.REACT_APP_RAPID_API_KEY
 
 const Questions = () => {
-    const [selectedItems,setselectedItems] = useState([]);
+    const [selectedItems,setselectedItems] = useState('');
 
     const handleSelectedItem = (e) => {
       setselectedItems(e.target.value);
@@ -24,11 +25,20 @@ const Questions = () => {
       }
     }
    
-    const handleSubmit = (e) => {
+
+
+    const handleSubmit= async (e) => {
       e.preventDefault(); 
-      console.log('Selected Options:'+ selectedItems);
-      console.log("Number of Selected Options:" + selectedItems.length);
+     
+      if (selectedItems) {
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPart/back',exerciseOptions);
+        console.log(exercisesData)
+        console.log(mykey)
+        console.log('Selected Options:'+ selectedItems);
+        console.log("Number of Selected Options:" + selectedItems.length);
+      }
     }
+
     return (
     <div className='questions'>
       <form onSubmit={handleSubmit}>

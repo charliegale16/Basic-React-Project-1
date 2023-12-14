@@ -1,9 +1,9 @@
-export const bodyParts = {
+export const exerciseOptions = {
     method: 'GET',
-    params: {limit: '10'},
+    params: {limit: '1000'},
     headers: {
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY
+      'X-RapidAPI-Key': 'ab75eb293bmsha6fe53de6100465p1c734ajsn15a4df560bfd'
     }
   };
   
