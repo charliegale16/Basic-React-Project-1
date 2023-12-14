@@ -1,0 +1,9 @@
+p {
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing:-0.2rem;
+}
+
+.question3 {
+    justify-content: center;
+    padding-top: 2rem;
+}
