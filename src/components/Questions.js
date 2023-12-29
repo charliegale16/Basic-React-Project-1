@@ -31,7 +31,7 @@ const Questions = () => {
       e.preventDefault(); 
      
       if (selectedItems) {
-        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPart/back',exerciseOptions);
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/',exerciseOptions);
         console.log(exercisesData)
         console.log(mykey)
         console.log('Selected Options:'+ selectedItems);
