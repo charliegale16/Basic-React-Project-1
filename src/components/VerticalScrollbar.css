@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .card {
     display: inline-table;
     border: 1px solid rgb(119, 119, 119); 
@@ -23,7 +25,7 @@
     cursor: pointer;
 }
 .card .card-title{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier Prime', monospace;
     margin-top: 3px;
     font-size: 1.5rem;
     font-weight: bold;
