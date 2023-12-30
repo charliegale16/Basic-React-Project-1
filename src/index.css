@@ -3,4 +3,6 @@
 body {
   background-color: blanchedalmond;
   font-family: 'Courier Prime', monospace;
+  text-align: center;
+  position: center;
 }
