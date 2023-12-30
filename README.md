@@ -2,9 +2,14 @@
 
 Workout Generator is a web application built with ReactJS that generates random workouts based on user input. It utilizes the ExerciseDB API to fetch exercise data and create customized workout routines.
 
+## Link
+
+https://workout-generator-charliegale.netlify.app/
+
+
 ## Features
 
-- **Random Workout Generation**: Users can input their preferences such as workout duration, target areas, and equipment availability to generate custom workouts.
+- **Random Workout Generation**: Users can input their target areas to generate custom workouts.
 - **Exercise Database Integration**: The application fetches exercise information from ExerciseDB to provide a wide range of exercise options.
 - **Responsive Design**: The user interface is designed to be responsive and accessible across various devices.
 
@@ -41,4 +46,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or suggestions, feel free to contact the project maintainer at [email@example.com](mailto:email@example.com).
+If you have any questions or suggestions, feel free to contact the project maintainer at [charliegale16@gmail.com](mailto:charliegale16@gmail.com).
