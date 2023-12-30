@@ -10,10 +10,9 @@ let mykey = process.env.REACT_APP_RAPID_API_KEY
 
 
 const Questions = () => {
-    const [selectedItems,setselectedItems] = useState('');
+    const [selectedItems,setselectedItems] = useState("");
     const [exercises,setExercises] = useState([]);
     const [random,setRandom] = useState([]);
-
 
     const handleSelectedItem = (e) => {
       setselectedItems(e.target.value);
@@ -35,14 +34,86 @@ const Questions = () => {
     const handleSubmit= async (e) => {
       e.preventDefault();
       if (selectedItems) {
-        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=100',exerciseOptions);
-        const searchedExercises = exercisesData.filter(
-          (exercise) => exercise.target.toLowerCase().includes(selectedItems) ||
-          exercise.bodyPart.toLowerCase().includes(selectedItems)
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=1000',exerciseOptions);
+        
+        /*
+        
+        Create const filter and state for each exercise after exerciseData API:
+        1.Back: inside const have an array of exercises. Randomize by only grabbing two from the list
+        2.Biceps
+        3.Chest
+        4.Legs
+        5.Shoudlers
+        6.Triceps
 
-        );
+        
 
+
+        
+
+
+        */
+
+       // 
+      // Convert all items in selectedItems to lowercase and store them in selectedItemsLowerCase
+      const selectedItemsLowerCase = selectedItems.map(item => item.toLowerCase());
+
+      // Filter exercisesData based on the condition inside the filter function
+      const searchedExercises = exercisesData.filter((exercise) => {
+      // Check if any item in selectedItemsLowerCase matches the bodyPart or target of the current exercise
+      return selectedItemsLowerCase.some(item =>
+        exercise.bodyPart.toLowerCase().includes(item) ||
+        exercise.target.toLowerCase().includes(item)
+      );
+      });
+
+        // Set the filtered exercises to the state variable (assuming setExercises is a state setter function)
         setExercises(searchedExercises);
+
+        function limitAndDisplayExercisesByBodyPart(exercises) {
+          // Create an object to store exercises by body part
+          const exercisesByBodyPart = {};
+        
+          // Group exercises by body part
+          exercises.forEach(exercise => {
+            const bodyPart = exercise.bodyPart.toLowerCase();
+            if (!exercisesByBodyPart[bodyPart]) {
+              exercisesByBodyPart[bodyPart] = [];
+            }
+            exercisesByBodyPart[bodyPart].push(exercise);
+          });
+          
+        
+          // Create an array to store the limited exercises
+          const limitedExercises = [];
+        
+          // Iterate over each body part in the exercisesByBodyPart object
+          for (const bodyPart in exercisesByBodyPart) {
+            // Get the exercises for the current body part
+            const current = exercisesByBodyPart[bodyPart];
+        
+            // Shuffle the exercises
+            const shuffledExercises = current.sort(() => 0.5 - Math.random());
+        
+            // Take the first two exercises and add them to the limitedExercises array
+            if(selectedItems.length == 6){
+              limitedExercises.push(...shuffledExercises.slice(0, 1));
+
+            }
+            else if(selectedItems.length == 1){
+              limitedExercises.push(...shuffledExercises.slice(0, 6));
+            }
+            else{
+            limitedExercises.push(...shuffledExercises.slice(0, 3));}
+          }
+          console.log(limitedExercises);
+          do{
+            limitedExercises.splice(Math.floor(Math.random * limitedExercises.length),1);
+          }while(limitedExercises.length > 6);
+        // Return the limited exercises
+          return limitedExercises;
+        }
+        setRandom(limitAndDisplayExercisesByBodyPart(searchedExercises));
         setselectedItems('');
 
 
@@ -53,16 +124,6 @@ const Questions = () => {
       
      
     };
- /*   for(var i=0; i < 3; i++){
-    if (exercises != 0 && random !=0) {
-      let randomNumber =
-      Math.floor(
-        Math.random() * exercises.length-1
-      );
-      setRandom(random => [...random,exercises[randomNumber]]);
-      }
-    }
-    */
 
     console.log(exercises);
     console.log(random);
@@ -156,7 +217,7 @@ const Questions = () => {
       </form>
      { <div>
 
-          <VerticalScrollbar data ={exercises}/> 
+          <VerticalScrollbar data ={random}/> 
 
       </div>
         }

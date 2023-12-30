@@ -1,0 +1,74 @@
+.card {
+    display: inline-table;
+    border: 1px solid rgb(119, 119, 119); 
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1) ;
+    padding: 50px;
+    margin: 10px;
+    max-width: 20rem;
+    transition: 0.2s;
+    cursor: pointer;
+    height: auto;
+    text-transform: capitalize;
+    
+}
+
+.card .card-image{
+    border: 1px solid rgb(119, 119, 119);
+    max-width: 80%;
+    height: auto;
+    border: 50%;
+    margin-bottom: auto;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.card .card-title{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 3px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.card:hover{
+    transform: translateY(-0.5rem);
+    box-shadow: 0.25rem 0.5rem 1rem;
+}
+.card .card-target{
+    color: #fff;
+    background: #c03c3c;
+    font-size: 14px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    position: relative;
+    float: inline-start;
+    margin-left: 30px;
+}
+.card .card-target2{
+    color: #fff;
+    background: #c03c3c;
+    font-size: 14px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    position: relative;
+    float: inline-start;
+    margin-left: 5px;
+}
+
+.card .card-instr{
+    position: left;
+    text-transform: initial;
+    text-align: justify;
+    
+
+}
+
+.card .card-instr-title {
+    font-weight: 600;
+}
+
+.header{
+    margin-top: 50px;
+}
+
+.VerticalScrollbar{
+    background-image: url(C:\Users\Charlie\Desktop\Basic-React-Project-1-1\src\assets\gym_background.jpg);
+}
