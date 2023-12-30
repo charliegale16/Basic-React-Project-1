@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Questions.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { exerciseOptions, fetchData } from '../utils/fetchData.js';
+import VerticalScrollbar from './VerticalScrollbar.js';
 let mykey = process.env.REACT_APP_RAPID_API_KEY
+
 
 const Questions = () => {
     const [selectedItems,setselectedItems] = useState('');
+    const [exercises,setExercises] = useState([]);
+    const [random,setRandom] = useState([]);
+
 
     const handleSelectedItem = (e) => {
       setselectedItems(e.target.value);
@@ -28,21 +33,49 @@ const Questions = () => {
 
 
     const handleSubmit= async (e) => {
-      e.preventDefault(); 
-     
+      e.preventDefault();
       if (selectedItems) {
-        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/',exerciseOptions);
-        console.log(exercisesData)
-        console.log(mykey)
-        console.log('Selected Options:'+ selectedItems);
-        console.log("Number of Selected Options:" + selectedItems.length);
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=100',exerciseOptions);
+        const searchedExercises = exercisesData.filter(
+          (exercise) => exercise.target.toLowerCase().includes(selectedItems) ||
+          exercise.bodyPart.toLowerCase().includes(selectedItems)
+
+        );
+
+        setExercises(searchedExercises);
+        setselectedItems('');
+
+
+        console.log(exercisesData);
+        
+        console.log(searchedExercises);
+        console.log(selectedItems); 
+      
+     
+    };
+ /*   for(var i=0; i < 3; i++){
+    if (exercises != 0 && random !=0) {
+      let randomNumber =
+      Math.floor(
+        Math.random() * exercises.length-1
+      );
+      setRandom(random => [...random,exercises[randomNumber]]);
       }
     }
+    */
+
+    console.log(exercises);
+    console.log(random);
+    
+
+
+    }
+
 
     return (
     <div className='questions'>
       <form onSubmit={handleSubmit}>
-        <div className='question1'>
+        {/*<div className='question1'>
         <p>How many times a week do you want to work out?</p>
         <Form.Select className='button' aria-label="Number of Workout Days"onChange={handleSelectedItem}>
         <option>None</option>
@@ -53,6 +86,7 @@ const Questions = () => {
         <option value="5">Five</option>
         </Form.Select>
         </div>
+    */}
         <div className='question2'>
         <p>Select the body parts you want to workout: </p>
         {['checkbox'].map((type) => (
@@ -120,10 +154,18 @@ const Questions = () => {
       
         </div>
       </form>
-      
+     { <div>
+
+          <VerticalScrollbar data ={exercises}/> 
+
+      </div>
+        }
         
     </div>
   )
+
 }
+
+
 
 export default Questions
