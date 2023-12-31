@@ -27,7 +27,7 @@ To use the Workout Generator, follow these steps:
 
 ## API Integration
 
-Workout Generator uses the ExerciseDB API to retrieve exercise data. You can find more information about ExerciseDB [here](https://exercisedb.p.rapidapi.com).
+Workout Generator uses the ExerciseDB API to retrieve exercise data. You can find more information about ExerciseDB [here](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/details).
 
 ## Contributing
 
