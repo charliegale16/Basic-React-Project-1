@@ -1,6 +1,6 @@
 # Workout Generator
 
-Workout Generator is a web application built with ReactJS that generates random workouts based on user input. It utilizes the ExerciseDB API to fetch exercise data and create customized workout routines.
+Workout Generator is a web application built with ReactJS that generates random workouts based on user input. It utilizes the ExerciseDB API to fetch exercise data and create randomized workout routines.
 
 ## Link
 
