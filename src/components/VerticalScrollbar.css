@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .card {
     display: inline-table;
@@ -31,17 +30,13 @@
     font-weight: bold;
     opacity: 50%;
 }
-.card:hover{
-    transform: translateY(-0.5rem);
-    box-shadow: 0.25rem 0.5rem 1rem black;
-    opacity: 100%;
-}
+
 .card .card-target{
     color: #fff;
     background: #c03c3c;
     font-size: 14px;
     border-radius: 20px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     position: relative;
     float: inline-start;
     margin-left: 30px;
@@ -51,7 +46,7 @@
     background: #c03c3c;
     font-size: 14px;
     border-radius: 20px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     position: relative;
     float: inline-start;
     margin-left: 5px;
@@ -61,14 +56,46 @@
     position: left;
     text-transform: initial;
     text-align: justify;
+    word-spacing: normal;
+    opacity: 50%;
     
 
 }
 
 .card .card-instr-title {
     font-weight: 600;
+    margin-top: 20px;
+    opacity: 50%;
 }
 
 .header{
     margin-top: 50px;
 }
+
+/*--------------------------------------
+START OF CARD HOVER ADJUSTMENTS
+--------------------------------------*/
+.card:hover{
+    transform: translateY(-0.5rem);
+    box-shadow: 0.25rem 0.5rem 1rem black;
+    background-color:rgba(22, 21, 21, 0.922);
+}
+.card:hover .card-title{
+    opacity: 100%;
+    color: white;
+}
+.card:hover .card-image{
+    opacity: 100%;
+    color: white;
+}
+.card:hover .card-instr-title{
+    opacity: 100%;
+    color: white;
+}
+.card:hover .card-instr{
+    opacity: 100%;
+    color: white;
+}
+/*--------------------------------------
+END OF CARD HOVER ADJUSTMENTS
+--------------------------------------*/
