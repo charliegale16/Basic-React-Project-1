@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .card {
     display: inline-table;
-    border: 1px solid rgb(119, 119, 119); 
-    border-radius: 10px;
+    border: 3px solid rgb(72, 72, 72); 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1) ;
     padding: 50px;
     margin: 10px;
@@ -16,23 +15,26 @@
 }
 
 .card .card-image{
-    border: 1px solid rgb(119, 119, 119);
+    border: 1px solid rgb(33, 33, 33);
     max-width: 80%;
     height: auto;
     border: 50%;
     margin-bottom: auto;
     transition: 0.2s;
     cursor: pointer;
+    opacity: 75%;
 }
 .card .card-title{
-    font-family: 'Courier Prime', monospace;
+    font-family: 'Bebas Neue', monospace;
     margin-top: 3px;
     font-size: 1.5rem;
     font-weight: bold;
+    opacity: 50%;
 }
 .card:hover{
     transform: translateY(-0.5rem);
-    box-shadow: 0.25rem 0.5rem 1rem;
+    box-shadow: 0.25rem 0.5rem 1rem black;
+    opacity: 100%;
 }
 .card .card-target{
     color: #fff;

@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Stack } from 'react-bootstrap';
 import { exerciseOptions, fetchData } from '../utils/fetchData.js';
 import VerticalScrollbar from './VerticalScrollbar.js';
 let mykey = process.env.REACT_APP_RAPID_API_KEY
@@ -13,6 +14,7 @@ const Questions = () => {
     const [selectedItems,setselectedItems] = useState("");
     const [exercises,setExercises] = useState([]);
     const [random,setRandom] = useState([]);
+    const [showHeader, setShowHeader] = useState(false);
 
     const handleSelectedItem = (e) => {
       setselectedItems(e.target.value);
@@ -115,6 +117,7 @@ const Questions = () => {
         }
         setRandom(limitAndDisplayExercisesByBodyPart(searchedExercises));
         setselectedItems('');
+        setShowHeader(true);
 
 
         console.log(exercisesData);
@@ -149,69 +152,82 @@ const Questions = () => {
         </div>
     */}
         <div className='question2'>
-        <p>Select the body parts you want to workout: </p>
         {['checkbox'].map((type) => (
-        <div key={'default-${type}'} className="mb-3">
-
-          <Form.Check
-            label="Back"
+        <div key={'default-${type}'} role='group' class ="btn-group" >
+          <Stack className='card1' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-1'}
+            role='group'
             value = "back"
             name="group1"
-            type= {type}
-            id ={'default-${type}-1'}
             onChange={handleCheckboxChanges}
-          />          
-          <Form.Check
-            label="Biceps"
-            value="biceps"
-            name="group1"
-            type= {type}
-            id ={'default-${type}-2'}
-            onChange={handleCheckboxChanges}
-          />
-          <Form.Check
-            label="Chest"
-            value="chest"
-            name="group1"
-            type= {type}
-            id ={'default-${type}-3'}
-            onChange={handleCheckboxChanges}
-          />
-          <Form.Check
-            label="Legs"
-            value="legs"
-            name="group1"
-            type= {type}
-            id ={'default-${type}-4'}
-            onChange={handleCheckboxChanges}
-          />
-          <Form.Check
-            label="Shoulders"
-            value="shoulders"
-            name="group1"
-            type= {type}
-            id ={'default-${type}-5'}
-            onChange={handleCheckboxChanges}
-          />
-          <Form.Check
-            label="Triceps"
-            value="triceps"
-            name="group1"
-            type= {type}
-            id ={'default-${type}-6'}
-            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary1" for={'default-${type}-1'}>Back</label>
+          </Stack>      
 
-          />
+          <Stack className='card2' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-2'}
+            role='group'
+            value = "biceps"
+            name="group1"
+            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary2" for={'default-${type}-2'}>Biceps</label>
+          </Stack>
+          <Stack className='card3' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-3'}
+            role='group'
+            value = "chest"
+            name="group1"
+            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary3" for={'default-${type}-3'}>Chest</label>
+          </Stack>
+          <Stack className='card4' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-4'}
+            role='group'
+            value = "legs"
+            name="group1"
+            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary4" for={'default-${type}-4'}>Legs</label>
+          </Stack>
+          <Stack className='card5' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-5'}
+            role='group'
+            value = "shoudlers"
+            name="group1"
+            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary5" for={'default-${type}-5'}>Shoudlers</label>
+          </Stack>
+          <Stack className='card6' direction='row'>
+          <input type= {type} class="btn-check" id ={'default-${type}-6'}
+            role='group'
+            value = "triceps"
+            name="group1"
+            onChange={handleCheckboxChanges}
+            autocomplete="off">
+            </input>
+          <label class="btn-outline-primary6" for={'default-${type}-6'}>Triceps</label>
+          </Stack>
           
         </div>
       ))}
         </div>
-        <div className='question3'>
+        <div className='submit-btn'>
         <Form.Group as={Row} className="mb-3">
         <Col sm={{ span: 10, offset: 2 }}>
-          <Button type="submit">Submit</Button>
+              <button type="submit" class="submit-button"></button>
+              <span onClick={handleSubmit} id="submitButton" class="button-text">Submit</span>
+
         </Col>
       </Form.Group>
+      {showHeader && <h1 className='results'>RESULTS</h1>}
       
         </div>
       </form>

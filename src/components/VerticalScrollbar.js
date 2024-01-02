@@ -5,7 +5,6 @@ import { Stack } from 'react-bootstrap';
 const VerticalScrollbar = ( {data} ) => {
   return (
     <div>
-        <h1 className='header'>Results</h1>
         {data.map((data) => (
         <div key = {data.id} className="card">
           <h1 className='card-title'>{data.name}</h1>
