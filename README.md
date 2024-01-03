@@ -6,8 +6,13 @@ Workout Generator is a web application built with ReactJS that generates random 
 
 https://workout-generator-charliegale.netlify.app/
 
+- First Draft 
+
 ![Workout Generator](https://i.imgur.com/iSKPFbh.png)
 
+-Final Product
+![Workout Generator](https://i.imgur.com/qliul2c.png)
+![Workout Generator](https://i.imgur.com/D82M4VB.png)
 
 
 ## Features
