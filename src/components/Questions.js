@@ -198,12 +198,12 @@ const Questions = () => {
           <Stack className='card5' direction='row'>
           <input type= {type} class="btn-check" id ={'default-${type}-5'}
             role='group'
-            value = "shoudlers"
+            value = "shoulders"
             name="group1"
             onChange={handleCheckboxChanges}
             autocomplete="off">
             </input>
-          <label class="btn-outline-primary5" for={'default-${type}-5'}>Shoudlers</label>
+          <label class="btn-outline-primary5" for={'default-${type}-5'}>Shoulders</label>
           </Stack>
           <Stack className='card6' direction='row'>
           <input type= {type} class="btn-check" id ={'default-${type}-6'}
