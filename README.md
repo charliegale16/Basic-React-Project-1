@@ -6,11 +6,11 @@
 
 https://workout-generator-charliegale.netlify.app/
 
-- First Draft 
+* First Draft 
 
 ![Workout Generator](https://i.imgur.com/iSKPFbh.png)
 
--Final Product
+* Final Product
 ![Workout Generator](https://i.imgur.com/qliul2c.png)
 ![Workout Generator](https://i.imgur.com/D82M4VB.png)
 
